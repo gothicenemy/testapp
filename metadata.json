@@ -1,0 +1,6 @@
+{
+  "name": "Lighting Monitor System",
+  "description": "Python implementation of the Lighting Manufacturer AI Monitoring TS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
