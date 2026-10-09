@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+  # ============================================================================
+  # 1. LumenRadar Web App & REST API (Port 3000)
+  # Serves both the interactive Dashboard and REST API in a single container
+  # ============================================================================
+  lumenradar-app:
+    build: .
+    container_name: lumenradar-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - API_PORT=3000
+      - TZ=Europe/Kyiv
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-pro}
+      - DIGEST_RECIPIENT=${DIGEST_RECIPIENT:-client@company.ua}
+      - SMTP_HOST=${SMTP_HOST:-smtp.gmail.com}
+      - SMTP_PORT=${SMTP_PORT:-587}
+      - SMTP_SENDER=${SMTP_SENDER:-digest@lighting-monitor.com}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-}
+    volumes:
+      - ./data:/app/data
+      - ./backend/config:/app/backend/config
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ============================================================================
+  # 2. Automated Crawler & 14-day Scheduler Worker (FR-04..FR-06)
+  # ============================================================================
+  lumenradar-scheduler:
+    build: .
+    container_name: lumenradar-scheduler
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - TZ=Europe/Kyiv
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-2.5-pro}
+      - DIGEST_RECIPIENT=${DIGEST_RECIPIENT:-client@company.ua}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-}
+    volumes:
+      - ./data:/app/data
+      - ./backend/config:/app/backend/config
+    command: ["npx", "tsx", "backend/main.ts", "schedule"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # ============================================================================
+  # 3. PostgreSQL 16 Enterprise Relational Database (FR-39, FR-40)
+  # ============================================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: lumenradar-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: lumenradar
+      POSTGRES_USER: lumen
+      POSTGRES_PASSWORD: lumenpass_secure
+      TZ: Europe/Kyiv
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lumen -d lumenradar"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local

@@ -1,0 +1,23 @@
+schedule:
+  cron: 0 9 */14 * *
+  timezone: Europe/Kyiv
+  day: Monday
+  time: '09:00'
+email:
+  smtp_host: smtp.gmail.com
+  smtp_port: 587
+  sender: reports@lighting-monitor.com
+  recipients:
+    - nazar.maksimovskiy@gmail.com
+  alert_recipients:
+    - admin@example.com
+ai:
+  model: gemini-3.8-flash
+  confidence_threshold: 0.75
+  temperature: 0.1
+crawler:
+  rate_limit_ms: 1000
+  max_retries: 3
+  timeout_ms: 30000
+  user_agent: LightingMonitorBot/1.0
+  respect_robots_txt: true

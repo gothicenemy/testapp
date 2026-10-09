@@ -1,0 +1,200 @@
+manufacturers:
+  - id: erco
+    name: ERCO
+    domain: erco.com
+    products_url: https://www.erco.com/en/products/
+    news_url: https://www.erco.com/en/inspiration/
+    sitemap_url: https://www.erco.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: zumtobel
+    name: Zumtobel
+    domain: zumtobel.com
+    products_url: https://www.zumtobel.com/gb-en/products.html
+    news_url: https://www.zumtobel.com/gb-en/press.html
+    sitemap_url: https://www.zumtobel.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: iguzzini
+    name: iGuzzini
+    domain: iguzzini.com
+    products_url: https://www.iguzzini.com/en/indoor-lighting/
+    news_url: https://www.iguzzini.com/en/new-products/
+    sitemap_url: https://www.iguzzini.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: targetti
+    name: Targetti
+    domain: targetti.com
+    products_url: https://www.targetti.com/en/Products/Indoor
+    news_url: https://www.targetti.com/en/news
+    sitemap_url: https://www.targetti.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: fagerhult
+    name: Fagerhult
+    domain: fagerhult.com
+    products_url: https://www.fagerhult.com/products/
+    news_url: https://www.fagerhult.com/news/
+    sitemap_url: https://www.fagerhult.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: trilux
+    name: Trilux
+    domain: trilux.com
+    products_url: https://www.trilux.com/en/products/
+    news_url: https://www.trilux.com/en/blog/
+    sitemap_url: https://www.trilux.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: xal
+    name: XAL
+    domain: xal.com
+    products_url: https://www.xal.com/en/products
+    news_url: https://www.xal.com/en/news
+    sitemap_url: https://www.xal.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: delta_light
+    name: Delta Light
+    domain: deltalight.com
+    products_url: https://www.deltalight.com/en/products
+    news_url: https://www.deltalight.com/en/inspiration
+    sitemap_url: https://www.deltalight.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: flos
+    name: Flos
+    domain: flos.com
+    products_url: https://professional.flos.com/en/global/
+    news_url: https://professional.flos.com/en/global/stories/
+    sitemap_url: https://professional.flos.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: artemide
+    name: Artemide
+    domain: artemide.com
+    products_url: https://www.artemide.com/en/products/indoor
+    news_url: https://www.artemide.com/en/journal
+    sitemap_url: https://www.artemide.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: bega
+    name: BEGA
+    domain: bega.com
+    products_url: https://www.bega.com/en/products/
+    news_url: https://www.bega.com/en/company/
+    sitemap_url: https://www.bega.com/en/sitemap.xml
+    language: en
+    is_js_rendered: false
+    active: true
+
+  - id: regent
+    name: Regent
+    domain: regent.ch
+    products_url: https://www.regent.ch/en/products/overview/
+    news_url: https://www.regent.ch/en/company/
+    sitemap_url: https://www.regent.ch/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: molto_luce
+    name: Molto Luce
+    domain: moltoluce.com
+    products_url: https://www.moltoluce.com/en/products/
+    news_url: https://www.moltoluce.com/en/company/
+    sitemap_url: https://www.moltoluce.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: rzb
+    name: RZB
+    domain: rzb.de
+    products_url: https://www.rzb.de/en/products/
+    news_url: https://www.rzb.de/en/news/
+    sitemap_url: https://www.rzb.de/sitemap.xml
+    language: en
+    is_js_rendered: false
+    active: true
+
+  - id: thorlux
+    name: Thorlux
+    domain: thorlux.com
+    products_url: https://www.thorlux.com/products
+    news_url: https://www.thorlux.com/news
+    sitemap_url: https://www.thorlux.com/sitemap.xml
+    language: en
+    is_js_rendered: false
+    active: true
+
+  - id: thorn
+    name: Thorn
+    domain: thornlighting.com
+    products_url: https://www.thornlighting.com/en-gb/products
+    news_url: https://www.thornlighting.com/en-gb/about-us/press
+    sitemap_url: https://www.thornlighting.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: slv
+    name: SLV
+    domain: slv.com
+    products_url: https://www.slv.com/en_gb/products
+    news_url: https://www.slv.com/en_gb/news
+    sitemap_url: https://www.slv.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: wever_ducre
+    name: Wever & Ducré
+    domain: weverducre.com
+    products_url: https://www.weverducre.com/en/products
+    news_url: https://www.weverducre.com/en/company/news
+    sitemap_url: https://www.weverducre.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: modular_lighting
+    name: Modular Lighting
+    domain: supermodular.com
+    products_url: https://www.supermodular.com/en/products
+    news_url: https://www.supermodular.com/en/blog/
+    sitemap_url: https://www.supermodular.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
+
+  - id: luceplan
+    name: Luceplan
+    domain: luceplan.com
+    products_url: https://www.luceplan.com/products/
+    news_url: https://www.luceplan.com/stories/
+    sitemap_url: https://www.luceplan.com/sitemap.xml
+    language: en
+    is_js_rendered: true
+    active: true
