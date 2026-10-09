@@ -215,14 +215,17 @@ export class AIClassifier {
       const ogImage = $('meta[property="og:image"]').attr('content')?.trim();
 
       // Filter corporate, legal, contact, and non-product hub pages per FR-18 & FR-35
-      const nonProductPattern = /\/(privacy|cookie|terms|legal|contact|about|downloads?|company|career|press|news|search|login|cart|checkout|warranty|codice-etico|newsletter|jobs|conditions|cleaning|disposal|projects|case-studies|wishlist|support|faqs?|partner-portal|ecodesign|slr-ecodesign|lightguide|developers|planner-tools|inspiration|configurators?|all-spaces|collections?(\/|$)|categories(\/|$)|c\/[a-z0-9-]+~\d+|rooms?(\/|$)|designing-with-light|services|novelties|applications?|themed-pages|product-marketing-pages|lighting-theory|\/(es|fr|it)\/|(products|indoor|outdoor|luminaires|downlights|spotlights|floodlights)\/?$)/i;
+      const nonProductPattern = /\/(privacy|cookie|terms|legal|contact|about|downloads?|company|career|press|news|search|login|cart|checkout|warranty|codice-etico|newsletter|jobs|conditions|cleaning|disposal|projects|case-studies|wishlist|support|faqs?|partner-portal|ecodesign|slr-ecodesign|lightguide|developers|planner-tools|inspiration|configurators?|all-spaces|collections?(\/|$)|categories(\/|$)|c\/[a-z0-9-]+~\d+|rooms?(\/|$)|designing-with-light|services|services-for-business|novelties|applications?|themed-pages|product-marketing-pages|lighting-theory|\/(es|fr|it)\/|(products|indoor|outdoor|luminaires|downlights|spotlights|floodlights)\/?$|journal|stories|more-inspiration|our-expertise|working-at|lighting-tools|seminars|urban-furniture|electrical-supply|light-control|tools-resources|locations|nutzerbereich|carbon-offsetting|smartscan|5-year-guarantee|sitemap|tools|clp-spare-parts|notice-to-customers|payments|shipping|returns|stores|designers|Light-management|azmet-ev|colouractive-gateway|columns|shop-products|product-categories|all-product-families|product-index|fast-delivery|my\/area|loadMore)/i;
       const isNonProductUrl = nonProductPattern.test(url);
-      const isCorporatePage = /^(privacy|cookie|terms|about|contact|search|downloads?|company|overview|home|startseite|login|wishlist|faq|frequently asked|support|regulation|inspiration|partner portal|configurator|we are more than one|the future shines bright|eu lighting regulations|indoor lighting|outdoor lighting|downlights and recessed|ceiling lights|pendant lights|wall lights|track light|kitchen lighting|dining room|living room|bathroom|office lighting|stairway|soft acoustics|bollard lights|accessories|bespoke|technical consulting|global network)/i.test(pageTitle) ||
-        /^(privacy|cookie|terms|about|contact|search|downloads?|company|overview|login|wishlist|faq|support|products|indoor|outdoor|new)/i.test(h1Text) ||
+      const isCorporatePage = /^(privacy|cookie|terms|about|contact|search|downloads?|company|overview|home|startseite|login|wishlist|faq|frequently asked|support|regulation|inspiration|partner portal|configurator|we are more than one|the future shines bright|eu lighting regulations|indoor lighting|outdoor lighting|downlights and recessed|ceiling lights|pendant lights|wall lights|track light|kitchen lighting|dining room|living room|bathroom|office lighting|stairway|soft acoustics|bollard lights|accessories|bespoke|technical consulting|global network|modular custom|repair|refurbish|technical support|visit our showrooms|request a quote|become a partner|personalised project|smart services|stories|notice to customers|payment|shipping|returns|artemide journal|events|relate|lichtbericht|tools|highlight families|catalogues)/i.test(pageTitle) ||
+        /^(privacy|cookie|terms|about|contact|search|downloads?|company|overview|login|wishlist|faq|support|products|indoor|outdoor|new|services|showroom|partner|quote|repair)/i.test(h1Text) ||
         (pageTitle.length < 3) ||
         pageTitle.toLowerCase().endsWith('collection') ||
         pageTitle.toLowerCase().endsWith('family') ||
-        pageTitle.toLowerCase().endsWith('overview');
+        pageTitle.toLowerCase().endsWith('overview') ||
+        pageTitle.toLowerCase().includes('showroom') ||
+        pageTitle.toLowerCase().includes('technical support') ||
+        pageTitle.toLowerCase().includes('become a partner');
 
       if (isNonProductUrl || isCorporatePage) {
         // Return NOT_RELEVANT per FR-15 / FR-18 -> Excluded from products and digest

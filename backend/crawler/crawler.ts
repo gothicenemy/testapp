@@ -182,8 +182,8 @@ export class Crawler {
               return;
             }
 
-            // Skip corporate, legal, PR, contact, and non-product hub pages (FR-35)
-            const nonProductPattern = /\/(privacy|cookie|terms|legal|contact|about|downloads?|company|career|press|news|search|login|cart|checkout|warranty|codice-etico|newsletter|jobs|conditions|cleaning|disposal|projects|case-studies|media\/download|wishlist|support|faqs?|partner-portal|ecodesign|slr-ecodesign|lightguide|developers|planner-tools|inspiration|configurators?|collections?(\/|$)|categories(\/|$)|c\/[a-z0-9-]+~\d+|rooms?(\/|$)|designing-with-light|services|novelties|applications?|themed-pages|product-marketing-pages|lighting-theory)/i;
+            // Skip corporate, legal, PR, contact, services, showrooms, tools, and non-product hub pages (FR-35)
+            const nonProductPattern = /\/(privacy|cookie|terms|legal|contact|about|downloads?|company|career|press|news|search|login|cart|checkout|warranty|codice-etico|newsletter|jobs|conditions|cleaning|disposal|projects|case-studies|media\/download|wishlist|support|faqs?|partner-portal|ecodesign|slr-ecodesign|lightguide|developers|planner-tools|inspiration|configurators?|collections?(\/|$)|categories(\/|$)|c\/[a-z0-9-]+~\d+|rooms?(\/|$)|designing-with-light|services|services-for-business|novelties|applications?|themed-pages|product-marketing-pages|lighting-theory|journal|stories|more-inspiration|our-expertise|working-at|lighting-tools|seminars|urban-furniture|electrical-supply|light-control|tools-resources|locations|nutzerbereich|carbon-offsetting|smartscan|5-year-guarantee|sitemap|tools|clp-spare-parts|notice-to-customers|payments|shipping|returns|stores|designers|Light-management|azmet-ev|colouractive-gateway|columns|shop-products|product-categories|all-product-families|product-index|fast-delivery|my\/area|loadMore)/i;
             if (nonProductPattern.test(parsed.pathname)) {
               return;
             }
